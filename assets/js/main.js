@@ -92,20 +92,65 @@ modalCloses.forEach((modalClose) => {
     })
 })
 
-/*==================== PORTFOLIO SWIPER  ====================*/
-let swiperPortfolio = new Swiper('.portfolio__container', {
-    cssMode: true,
-    loop: true,
+/*==================== PORTFOLIO SWIPER WITH CATEGORY FILTERING ====================*/
+let swiperInstance = null;
+const categories = document.querySelectorAll('.portfolio__category');
+const allSlides = document.querySelectorAll('.swiper-slide');
+const slidesByCategory = {
+    'web-dev': [],
+    'ai-project': []
+};
 
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      clickable: true,
-    },
-})
+// Categorize slides
+allSlides.forEach(slide => {
+    const category = slide.dataset.category;
+    if (slidesByCategory[category]) {
+        slidesByCategory[category].push(slide.outerHTML);
+    }
+});
+
+// Initialize Swiper with options from original setup
+function initSwiper() {
+    swiperInstance = new Swiper('.portfolio__container', {
+        cssMode: true,
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        },
+        pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+        },
+    });
+}
+
+// Initial load
+function loadCategory(category) {
+    const swiperWrapper = document.querySelector('.swiper-wrapper');
+    if (swiperInstance) swiperInstance.destroy(true, true);
+    swiperWrapper.innerHTML = slidesByCategory[category].join('');
+    initSwiper();
+}
+
+// Set initial category
+document.addEventListener('DOMContentLoaded', () => {
+    loadCategory('web-dev');
+});
+
+// Category click handlers
+categories.forEach(category => {
+    category.addEventListener('click', (e) => {
+        e.preventDefault();
+        const selectedCategory = e.target.dataset.category;
+        
+        categories.forEach(c => c.classList.remove('portfolio__category--active'));
+        e.target.classList.add('portfolio__category--active');
+        
+        loadCategory(selectedCategory);
+    });
+});
+
 
 /*==================== TESTIMONIAL ====================*/
 let swiperTestimonial = new Swiper('.testimonial__container', {

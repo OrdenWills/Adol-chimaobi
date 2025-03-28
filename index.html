@@ -840,26 +840,18 @@
             <section class="portfolio section" id="portfolio">
                 <h2 class="section__title">Portfolio</h2>
                 <span class="section__subtitle">My works, projects & contributions</span>
-
+            
+                <!-- Category Filters -->
+                <div class="portfolio__categories">
+                    <a href="#" class="portfolio__category portfolio__category--active" data-category="web-dev">Web Dev</a>
+                    <a href="#" class="portfolio__category" data-category="ai-project">AI Project</a>
+                </div>
+            
                 <div class="portfolio__container container swiper-container">
                     <div class="swiper-wrapper">
-
-                        <div class="portfolio__content grid swiper-slide">
-                            <img src="./assets/img/ai.png" alt="" class="portfolio__img">
-    
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">LLM(Ai Chatbot)</h3>
-                                <p class="portfolio__description">A LLM powered by Gemini for creative writing, translation, question answering, information extraction, code generation, and more..</p>
-                                <a href="https://app-personalai.onrender.com" class="button button--flex button--small portfolio__button">
-                                    View
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-                            </div>
-                        </div>
-
-                        <div class="portfolio__content grid swiper-slide">
+                        <!-- Web Dev Project -->
+                        <div class="portfolio__content grid swiper-slide" data-category="web-dev">
                             <img src="./assets/img/portfolio.png" alt="portfolio" class="portfolio__img">
-    
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">My portfolio</h3>
                                 <p class="portfolio__description">Uses Html, css and JavaScript to tell a story about me and my career journey and for displaying my work</p>
@@ -870,9 +862,47 @@
                             </div>
                         </div>
 
-                        <div class="portfolio__content grid swiper-slide">
+                        <div class="portfolio__content grid swiper-slide" data-category="web-dev">
+                            <img src="./assets/img/realest.png" alt="portfolio" class="portfolio__img">
+                            <div class="portfolio__data">
+                                <h3 class="portfolio__title">E-commerce Site</h3>
+                                <p class="portfolio__description">Built using Python Flask and a Bootstrap template, this platform provides a seamless online shopping experience with a responsive design and essential e-commerce functionalities</p>
+                                <a href="#" class="button button--flex button--small portfolio__button">
+                                    Client work
+                                    <i class="uil uil-arrow-right button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="portfolio__content grid swiper-slide" data-category="web-dev">
+                            <img src="./assets/img/blog.png" alt="portfolio" class="portfolio__img">
+                            <div class="portfolio__data">
+                                <h3 class="portfolio__title">Blog Site</h3>
+                                <p class="portfolio__description">Developed with Flask, HTML, CSS, and JavaScript, this blog platform allows users to read, share, and interact with articles in a clean and engaging layout. It features dynamic content rendering and a user-friendly interface.
+
+                                </p>
+                                <a href="#" class="button button--flex button--small portfolio__button">
+                                    client work
+                                    <i class="uil uil-arrow-right button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+            
+                        <!-- AI Projects -->
+                        <div class="portfolio__content grid swiper-slide" data-category="ai-project">
+                            <img src="./assets/img/ai.png" alt="" class="portfolio__img">
+                            <div class="portfolio__data">
+                                <h3 class="portfolio__title">LLM(Ai Chatbot)</h3>
+                                <p class="portfolio__description">A LLM powered by Gemini for creative writing, translation, question answering, information extraction, code generation, and more..</p>
+                                <a href="https://app-personalai.onrender.com" class="button button--flex button--small portfolio__button">
+                                    Check it out
+                                    <i class="uil uil-arrow-right button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+            
+                        <div class="portfolio__content grid swiper-slide" data-category="ai-project">
                             <img src="./assets/img/autcar.jpg" alt="AI Driver" class="portfolio__img">
-    
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Self Driving Car</h3>
                                 <p class="portfolio__description">Uses Computer Vision, Deep-Reinforcement Learning & CARLA to train and simulate a self driving car Agent.</p>
@@ -882,10 +912,9 @@
                                 </a>
                             </div>
                         </div>
-
-                        <div class="portfolio__content grid swiper-slide">
+            
+                        <div class="portfolio__content grid swiper-slide" data-category="ai-project">
                             <img src="./assets/img/hwrit.png" alt="hand written" class="portfolio__img">
-    
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Handwriting Transcription</h3>
                                 <p class="portfolio__description">
@@ -897,11 +926,9 @@
                                 </a>
                             </div>
                         </div>
-
-
-                        <div class="portfolio__content grid swiper-slide">
+            
+                        <div class="portfolio__content grid swiper-slide" data-category="ai-project">
                             <img src="./assets/img/comb.png" alt="" class="portfolio__img">
-    
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Image Super-Resolution GAN</h3>
                                 <p class="portfolio__description">Generating super-resolution images from low-resolution images 
@@ -912,41 +939,9 @@
                                 </a>
                             </div>
                         </div>
-
-                        <!-- <div class="portfolio__content grid swiper-slide">
-                            <img src="./assets/img/neuralBlack.png" alt="neural black vector art" class="portfolio__img">
-    
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Neural Black - Brain Tumor Diagnosis System</h3>
-                                <p class="portfolio__description">
-                                    Neural Black is a complete brain tumor detection, classification, and diagnosis system with high accuracy that uses state of the art Deep Learning methods.
-                                </p>
-                                <a href="https://github.com/aksh-ai/neuralBlack" class="button button--flex button--small portfolio__button">
-                                    View
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-                            </div>
-                        </div> -->
-                          
-                        <!-- <div class="portfolio__content grid swiper-slide">
-                            <img src="./assets/img/third-eye.png" alt="Third Eye vector art" class="portfolio__img">
-    
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Third Eye - Intrusion Detection System</h3>
-                                <p class="portfolio__description">
-                                    A Hybrid Intrusion Detection system with firewall that uses Machine Learning to detect network intrusions 
-                                    by analyzing network traffic data and extra environmental features.
-                                </p>
-                                <a href="https://github.com/aksh-ai/third-eye-ids" class="button button--flex button--small portfolio__button">
-                                    In Dev
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-                            </div>
-                        </div> -->
-
-                        <div class="portfolio__content grid swiper-slide">
+            
+                        <div class="portfolio__content grid swiper-slide" data-category="ai-project">
                             <img src="./assets/img/imcap.png" alt="Malware icon" class="portfolio__img">
-    
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Image Captioning</h3>
                                 <p class="portfolio__description">
@@ -958,10 +953,9 @@
                                 </a>
                             </div>
                         </div>
-
-                         <div class="portfolio__content grid swiper-slide">
+            
+                        <div class="portfolio__content grid swiper-slide" data-category="ai-project">
                             <img src="./assets/img/shoe.png" alt="Stock bot icon" class="portfolio__img">
-    
                             <div class="portfolio__data">
                                 <h3 class="portfolio__title">Shoe Generating Model</h3>
                                 <p class="portfolio__description">A Generative U-Net that takes contour images sprinked with colors to specify there you which colors you want and the model generates a fully painted realistic looking image similar to the original </p>
@@ -970,31 +964,18 @@
                                     <i class="uil uil-arrow-right button__icon"></i>
                                 </a>
                             </div>
-                        </div> 
-
-                        <!-- <div class="portfolio__content grid swiper-slide">
-                            <img src="./assets/img/tofu.png" alt="" class="portfolio__img">
-    
-                            <div class="portfolio__data">
-                                <h3 class="portfolio__title">Tofu - Deep Learning Framework</h3>
-                                <p class="portfolio__description">Tofu is a Deep Learning Framework for Python, C, C++, and Java that aims to deliver high user-friendliness 
-                                    and user-experience simplifying technicality and improving accessibility to common people.</p>
-                                <a href="https://github.com/aksh-ai/tofu" class="button button--flex button--small portfolio__button">
-                                    View
-                                    <i class="uil uil-arrow-right button__icon"></i>
-                                </a>
-                            </div>
-                        </div> -->
-
+                        </div>
+            
                     </div>
-
+            
+                    <!-- Swiper Controls -->
                     <div class="swiper-button-next">
                         <i class="uil uil-angle-right-b swiper-portfolio-icon"></i>
                     </div>
                     <div class="swiper-button-prev">
                         <i class="uil uil-angle-left-b swiper-portfolio-icon"></i>
                     </div>
-
+            
                     <div class="swiper-pagination"></div>
                 </div>
             </section>

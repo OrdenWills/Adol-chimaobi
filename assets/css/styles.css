@@ -825,6 +825,32 @@ img {
   padding: 0 1.5rem;
 }
 
+.portfolio__categories {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 1.5rem 0;
+}
+
+.portfolio__category {
+  cursor: pointer;
+  padding: 0.75rem 1.5rem;
+  border: 2px solid var(--first-color);
+  border-radius: 0.5rem;
+  color: var(--first-color);
+  font-weight: var(--font-medium);
+  transition: all 0.3s ease;
+}
+
+.portfolio__category:hover {
+  background-color: var(--first-color);
+  color: #fff;
+}
+
+.portfolio__category--active {
+  background-color: var(--first-color);
+  color: #fff;
+}
 .portfolio__img {
   width: 265px;
   border-radius: .5rem;
@@ -875,6 +901,7 @@ img {
 .swiper-pagination-bullet {
   outline: none;
 }
+
 
 /*==================== PROJECT IN MIND ====================*/
 .project {
