@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Chimaobi Adolphus Ekwe Blog - AI, Machine Learning, Automation & Tech Insights" />
+
+    <link rel="icon" href="./assets/img/favicon.ico" />
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+
+    <title>Blog | Chimaobi Adolphus Ekwe</title>
+
+    <style>
+        /* Blog-specific styling that blends with existing design */
+        .blog-page {
+            padding-top: 6rem;
+        }
+        .blog__container {
+            max-width: 968px;
+            margin: auto;
+        }
+        .blog__card {
+            background: var(--container-color);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            transition: 0.3s;
+        }
+        .blog__card:hover {
+            transform: translateY(-5px);
+        }
+        .blog__title {
+            font-size: var(--h2-font-size);
+            margin-bottom: 0.5rem;
+        }
+        .blog__meta {
+            font-size: var(--small-font-size);
+            color: var(--text-color-light);
+            margin-bottom: 1rem;
+        }
+        .blog__excerpt {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+        .blog__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .blog__search {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border-radius: 0.75rem;
+            border: 1px solid var(--input-color);
+            margin-bottom: 2rem;
+            background: var(--container-color);
+            color: var(--text-color);
+        }
+    </style>
+</head>
+<body>
+    <!-- Header (same structure as homepage) -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="index.html" class="nav__logo">Ad<i class="uil uil-brain"></i>lphus</a>
+
+            <div class="nav__menu" id="nav-menu">
+                <ul class="nav__list grid">
+                    <li class="nav__item"><a href="index.html#home" class="nav__link"><i class="uil uil-estate nav__icon"></i> Home</a></li>
+                    <li class="nav__item"><a href="index.html#about" class="nav__link"><i class="uil uil-user nav__icon"></i> About</a></li>
+                    <li class="nav__item"><a href="index.html#portfolio" class="nav__link"><i class="uil uil-scenery nav__icon"></i> Portfolio</a></li>
+                    <li class="nav__item"><a href="blog.html" class="nav__link active-link"><i class="uil uil-blogger-alt nav__icon"></i> Blog</a></li>
+                    <li class="nav__item"><a href="index.html#contact" class="nav__link"><i class="uil uil-message nav__icon"></i> Contact</a></li>
+                </ul>
+                <i class="uil uil-times nav__close" id="nav-close"></i>
+            </div>
+
+            <div class="nav__btns">
+                <i class="uil-sun uil-moon change-theme" id="theme-button"></i>
+                <div class="nav__toggle" id="nav-toggle"><i class="uil uil-apps"></i></div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="main blog-page">
+        <section class="section">
+            <h2 class="section__title">Blog</h2>
+            <span class="section__subtitle">Thoughts on AI, ML, Automation & Tech</span>
+
+            <div class="blog__container container">
+                <input type="text" id="blogSearch" class="blog__search" placeholder="Search posts..." />
+
+                <div id="blogPosts"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Ad<i class="uil uil-brain"></i>lphus</h1>
+                    <span class="footer__subtitle">Machine Learning Engineer</span>
+                </div>
+                <ul class="footer__links">
+                    <li><a href="index.html#services" class="footer__link">Services</a></li>
+                    <li><a href="index.html#portfolio" class="footer__link">Portfolio</a></li>
+                    <li><a href="blog.html" class="footer__link">Blog</a></li>
+                </ul>
+            </div>
+            <p class="footer__copy">&#169; Chimaobi Adolphus Ekwe <span id="footer-year"></span></p>
+        </div>
+    </footer>
+
+    <script>
+        const posts = [
+            {
+                title: "How AI is Changing Everyday Automation",
+                date: "Jan 2026",
+                excerpt: "From smart assistants to automated workflows, AI is quietly becoming the engine behind modern productivity tools..."
+            },
+            {
+                title: "Computer Vision in Real-World Systems",
+                date: "Dec 2025",
+                excerpt: "Beyond academic projects, computer vision now powers surveillance, healthcare imaging, retail analytics, and autonomous vehicles..."
+            },
+            {
+                title: "Building ML Projects That Actually Scale",
+                date: "Nov 2025",
+                excerpt: "Training a model is easy. Deploying, monitoring, and scaling it in production is where real engineering begins..."
+            }
+        ];
+
+        const container = document.getElementById("blogPosts");
+        const searchInput = document.getElementById("blogSearch");
+
+        function displayPosts(filter = "") {
+            container.innerHTML = "";
+            posts
+                .filter(p => p.title.toLowerCase().includes(filter.toLowerCase()))
+                .forEach(post => {
+                    container.innerHTML += `
+                        <div class="blog__card">
+                            <h3 class="blog__title">${post.title}</h3>
+                            <div class="blog__meta">${post.date}</div>
+                            <p class="blog__excerpt">${post.excerpt}</p>
+                            <a href="#" class="button button--flex button--small blog__btn">Read more <i class="uil uil-arrow-right"></i></a>
+                        </div>`;
+                });
+        }
+
+        searchInput.addEventListener("input", e => displayPosts(e.target.value));
+        displayPosts();
+
+        document.getElementById('footer-year').textContent = new Date().getFullYear();
+    </script>
+
+    <script src="./assets/js/main.js"></script>
+</body>
+</html>
