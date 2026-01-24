@@ -1,102 +1,289 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Chimaobi Adolphus Ekwe Blog - AI, Machine Learning, Automation & Tech Insights" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="keywords" content="Adol Chimaobi, Machine Learning Blog, AI Articles, Python Tutorials, Computer Vision, Nigeria AI">
+    <meta name="author" content="Adolphus Chimaobi M">
+    <meta name="description" content="Blog posts and articles by Chimaobi Adolphus on Machine Learning, AI, and Software Development.">
 
-    <link rel="icon" href="./assets/img/favicon.ico" />
-    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css" />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
+    <link rel="icon" href="./assets/img/favicon.ico">
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link rel="stylesheet" href="./assets/css/swiper-bundle.min.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
 
-    <title>Blog | Chimaobi Adolphus Ekwe</title>
+    <title>Blog - Chimaobi Adolphus Ekwe</title>
 
+    <!-- Internal CSS for Blog specific layout (You can move this to styles.css) -->
     <style>
-        /* Blog-specific styling that blends with existing design */
-        .blog-page {
-            padding-top: 6rem;
-        }
         .blog__container {
-            max-width: 968px;
-            margin: auto;
+            gap: 1.5rem;
+            grid-template-columns: repeat(2, 1fr);
         }
+
         .blog__card {
-            background: var(--container-color);
-            border-radius: 1rem;
-            padding: 1.5rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            transition: 0.3s;
+            background-color: var(--container-color);
+            border-radius: .5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.15);
+            transition: .3s;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            height: 100%;
         }
+
         .blog__card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-.25rem);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
         }
-        .blog__title {
-            font-size: var(--h2-font-size);
-            margin-bottom: 0.5rem;
-        }
-        .blog__meta {
-            font-size: var(--small-font-size);
-            color: var(--text-color-light);
-            margin-bottom: 1rem;
-        }
-        .blog__excerpt {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-        .blog__btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-        .blog__search {
+
+        .blog__img-wrapper {
             width: 100%;
-            padding: 0.8rem 1rem;
-            border-radius: 0.75rem;
-            border: 1px solid var(--input-color);
-            margin-bottom: 2rem;
-            background: var(--container-color);
-            color: var(--text-color);
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .blog__img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: .3s;
+        }
+
+        .blog__card:hover .blog__img {
+            transform: scale(1.05);
+        }
+
+        .blog__data {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog__category {
+            font-size: var(--smaller-font-size);
+            color: var(--first-color);
+            font-weight: var(--font-medium);
+            text-transform: uppercase;
+            margin-bottom: var(--mb-0-5);
+        }
+
+        .blog__title {
+            font-size: var(--h3-font-size);
+            margin-bottom: var(--mb-0-75);
+            cursor: pointer;
+        }
+
+        .blog__title:hover {
+            color: var(--first-color);
+        }
+
+        .blog__description {
+            margin-bottom: var(--mb-1-5);
+            font-size: var(--small-font-size);
+            flex-grow: 1; /* Pushes button to bottom */
+        }
+
+        .blog__footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-top: 1px solid var(--scroll-bar-color);
+            padding-top: 1rem;
+            margin-top: auto;
+        }
+
+        .blog__date {
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-light);
+            display: flex;
+            align-items: center;
+        }
+
+        .blog__date i {
+            margin-right: .25rem;
+        }
+
+        /* Mobile Responsive */
+        @media screen and (max-width: 568px) {
+            .blog__container {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
 <body>
-    <!-- Header (same structure as homepage) -->
+    <!--==================== HEADER ====================-->
     <header class="header" id="header">
         <nav class="nav container">
             <a href="index.html" class="nav__logo">Ad<i class="uil uil-brain"></i>lphus</a>
 
             <div class="nav__menu" id="nav-menu">
                 <ul class="nav__list grid">
-                    <li class="nav__item"><a href="index.html#home" class="nav__link"><i class="uil uil-estate nav__icon"></i> Home</a></li>
-                    <li class="nav__item"><a href="index.html#about" class="nav__link"><i class="uil uil-user nav__icon"></i> About</a></li>
-                    <li class="nav__item"><a href="index.html#portfolio" class="nav__link"><i class="uil uil-scenery nav__icon"></i> Portfolio</a></li>
-                    <li class="nav__item"><a href="blog.html" class="nav__link active-link"><i class="uil uil-blogger-alt nav__icon"></i> Blog</a></li>
-                    <li class="nav__item"><a href="index.html#contact" class="nav__link"><i class="uil uil-message nav__icon"></i> Contact</a></li>
+                    <li class="nav__item">
+                        <a href="index.html#home" class="nav__link">
+                            <i class="uil uil-estate nav__icon"></i> Home
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#about" class="nav__link">
+                            <i class="uil uil-user nav__icon"></i> About
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#portfolio" class="nav__link">
+                            <i class="uil uil-scenery nav__icon"></i> Portfolio
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="#" class="nav__link active-link">
+                            <i class="uil uil-blogger-alt nav__icon"></i> Blog
+                        </a>
+                    </li>
+
+                    <li class="nav__item">
+                        <a href="index.html#contact" class="nav__link">
+                            <i class="uil uil-message nav__icon"></i> Contact
+                        </a>
+                    </li>
                 </ul>
+                
                 <i class="uil uil-times nav__close" id="nav-close"></i>
             </div>
 
             <div class="nav__btns">
+                <!-- Theme change button -->
                 <i class="uil-sun uil-moon change-theme" id="theme-button"></i>
-                <div class="nav__toggle" id="nav-toggle"><i class="uil uil-apps"></i></div>
+
+                <div class="nav__toggle" id="nav-toggle">
+                    <i class="uil uil-apps"></i>
+                </div>
             </div>
         </nav>
     </header>
 
-    <main class="main blog-page">
+    <main class="main">
+        <!--==================== BLOG HERO ====================-->
         <section class="section">
-            <h2 class="section__title">Blog</h2>
-            <span class="section__subtitle">Thoughts on AI, ML, Automation & Tech</span>
-
-            <div class="blog__container container">
-                <input type="text" id="blogSearch" class="blog__search" placeholder="Search posts..." />
-
-                <div id="blogPosts"></div>
+            <div class="container">
+                <h1 class="section__title">My Blog</h1>
+                <span class="section__subtitle">Thoughts on AI, Engineering, and Tech</span>
             </div>
         </section>
+
+        <!--==================== BLOG POSTS ====================-->
+        <section class="blog__content section container" style="padding-top: 0;">
+            <div class="blog__container grid">
+                
+                <!-- Blog Post 1 -->
+                <article class="blog__card">
+                    <div class="blog__img-wrapper">
+                        <!-- Using a placeholder image related to AI/Tech -->
+                        <img src="./assets/img/ai.png" alt="AI Chatbot" class="blog__img">
+                    </div>
+                    <div class="blog__data">
+                        <span class="blog__category">Generative AI</span>
+                        <h2 class="blog__title">Understanding LLMs & Gemini Integration</h2>
+                        <p class="blog__description">
+                            A deep dive into how I built a personal AI assistant using Google's Gemini API. 
+                            We explore prompt engineering and context handling in Python Flask.
+                        </p>
+                        <div class="blog__footer">
+                            <span class="blog__date"><i class="uil uil-calendar-alt"></i> Jan 2025</span>
+                            <a href="#" class="button button--flex button--small button--link">
+                                Read More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 2 -->
+                <article class="blog__card">
+                    <div class="blog__img-wrapper">
+                        <img src="./assets/img/autcar.jpg" alt="Self Driving" class="blog__img">
+                    </div>
+                    <div class="blog__data">
+                        <span class="blog__category">Computer Vision</span>
+                        <h2 class="blog__title">Simulating Self-Driving Cars with CARLA</h2>
+                        <p class="blog__description">
+                            How Deep Reinforcement Learning can be applied to autonomous driving simulations.
+                            Challenges faced in training agents and optimizing reward functions.
+                        </p>
+                        <div class="blog__footer">
+                            <span class="blog__date"><i class="uil uil-calendar-alt"></i> Dec 2024</span>
+                            <a href="#" class="button button--flex button--small button--link">
+                                Read More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 3 -->
+                <article class="blog__card">
+                    <div class="blog__img-wrapper">
+                        <img src="./assets/img/portfolio.png" alt="Web Dev" class="blog__img">
+                    </div>
+                    <div class="blog__data">
+                        <span class="blog__category">Web Development</span>
+                        <h2 class="blog__title">Building a Portfolio that Converts</h2>
+                        <p class="blog__description">
+                            Tips on structuring a developer portfolio. Why combining AI projects with solid 
+                            Full-Stack skills makes you a stronger candidate in the Nigerian tech market.
+                        </p>
+                        <div class="blog__footer">
+                            <span class="blog__date"><i class="uil uil-calendar-alt"></i> Nov 2024</span>
+                            <a href="#" class="button button--flex button--small button--link">
+                                Read More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Blog Post 4 -->
+                <article class="blog__card">
+                    <div class="blog__img-wrapper">
+                        <img src="./assets/img/shoe.png" alt="GANs" class="blog__img">
+                    </div>
+                    <div class="blog__data">
+                        <span class="blog__category">Deep Learning</span>
+                        <h2 class="blog__title">Generative Adversarial Networks (GANs)</h2>
+                        <p class="blog__description">
+                            Exploring the magic behind Image Super-Resolution and Style Transfer. 
+                            How I used U-Net to generate realistic shoe designs from sketches.
+                        </p>
+                        <div class="blog__footer">
+                            <span class="blog__date"><i class="uil uil-calendar-alt"></i> Oct 2024</span>
+                            <a href="#" class="button button--flex button--small button--link">
+                                Read More <i class="uil uil-arrow-right button__icon"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+        <!--==================== NEWSLETTER ====================-->
+        <section class="section container">
+            <div class="project__bg" style="border-radius: 1rem; padding: 3rem;">
+                <div class="grid" style="text-align: center; color: white;">
+                    <h2>Subscribe to my Newsletter</h2>
+                    <p>Get the latest updates on my projects and tutorials directly to your inbox.</p>
+                    <form action="" style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;">
+                        <input type="email" placeholder="Email Address" class="contact__input" style="width: auto; border-radius: .5rem; padding: 1rem;">
+                        <button class="button button--white">Subscribe</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+
     </main>
 
+    <!--==================== FOOTER ====================-->
     <footer class="footer">
         <div class="footer__bg">
             <div class="footer__container container grid">
@@ -104,59 +291,55 @@
                     <h1 class="footer__title">Ad<i class="uil uil-brain"></i>lphus</h1>
                     <span class="footer__subtitle">Machine Learning Engineer</span>
                 </div>
+
                 <ul class="footer__links">
-                    <li><a href="index.html#services" class="footer__link">Services</a></li>
-                    <li><a href="index.html#portfolio" class="footer__link">Portfolio</a></li>
-                    <li><a href="blog.html" class="footer__link">Blog</a></li>
+                    <li>
+                        <a href="index.html#services" class="footer__link">Services</a>
+                    </li>
+                    <li>
+                        <a href="index.html#portfolio" class="footer__link">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="index.html#contact" class="footer__link">Contact</a>
+                    </li>
                 </ul>
+
+                <div class="footer__socials">
+                    <a href="https://github.com/OrdenWills/" target="_blank" class="footer__social">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ekwe-chimaobi-327644199" target="_blank" class="footer__social">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://twitter.com/orden_wills?s=20&t=ir3CsHnQy6gNCMLeNlsZmQ" target="_blank" class="footer__social">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a>
+                    <a href="https://wa.me/+2347046655760" target="_blank" class="footer__social">
+                        <i class="uil uil-whatsapp -alt"></i>                       
+                    </a>
+                </div>
             </div>
+
             <p class="footer__copy">&#169; Chimaobi Adolphus Ekwe <span id="footer-year"></span></p>
         </div>
     </footer>
 
+    <!-- Scroll Up -->
+    <a href="#" class="scrollup" id="scroll-top">
+        <i class="uil uil-arrow-up scrollup__icon"></i>
+    </a>
+
+    <!-- Footer Year Script -->
     <script>
-        const posts = [
-            {
-                title: "How AI is Changing Everyday Automation",
-                date: "Jan 2026",
-                excerpt: "From smart assistants to automated workflows, AI is quietly becoming the engine behind modern productivity tools..."
-            },
-            {
-                title: "Computer Vision in Real-World Systems",
-                date: "Dec 2025",
-                excerpt: "Beyond academic projects, computer vision now powers surveillance, healthcare imaging, retail analytics, and autonomous vehicles..."
-            },
-            {
-                title: "Building ML Projects That Actually Scale",
-                date: "Nov 2025",
-                excerpt: "Training a model is easy. Deploying, monitoring, and scaling it in production is where real engineering begins..."
-            }
-        ];
-
-        const container = document.getElementById("blogPosts");
-        const searchInput = document.getElementById("blogSearch");
-
-        function displayPosts(filter = "") {
-            container.innerHTML = "";
-            posts
-                .filter(p => p.title.toLowerCase().includes(filter.toLowerCase()))
-                .forEach(post => {
-                    container.innerHTML += `
-                        <div class="blog__card">
-                            <h3 class="blog__title">${post.title}</h3>
-                            <div class="blog__meta">${post.date}</div>
-                            <p class="blog__excerpt">${post.excerpt}</p>
-                            <a href="#" class="button button--flex button--small blog__btn">Read more <i class="uil uil-arrow-right"></i></a>
-                        </div>`;
-                });
+        var currentYear = new Date().getFullYear();
+        var footerYear = document.getElementById('footer-year');
+        if (footerYear) {
+          footerYear.textContent = currentYear;
         }
-
-        searchInput.addEventListener("input", e => displayPosts(e.target.value));
-        displayPosts();
-
-        document.getElementById('footer-year').textContent = new Date().getFullYear();
     </script>
-
+    
+    <!-- JS Files -->
+    <script src="./assets/js/swiper-bundle.min.js"></script>
     <script src="./assets/js/main.js"></script>
 </body>
 </html>
