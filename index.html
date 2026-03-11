@@ -64,10 +64,10 @@
                         
 
                         <li class="nav__item">
-    <a href="blog.html" class="nav__link">
-        <i class="uil uil-blogger-alt nav__icon"></i> Blog
-    </a>
-</li>
+                        <a href="#blog" class="nav__link">
+                            <i class="uil uil-blogger-alt nav__icon"></i> Blog
+                        </a>
+                    </li>
 
 
                         <li class="nav__item">
@@ -1000,9 +1000,83 @@
 
 
             <section class="blog section" id="blog">
-                <h2 class="section__title">Blog</h2>
-                <span class="section__subtitle">Coming soon</span>
-            </section>
+            <h2 class="section__title">Blog</h2>
+            <span class="section__subtitle">Thoughts on AI, Engineering, and Tech</span>
+            
+            <div class="container">
+                <div class="blog__container grid">
+                    <!-- Blog Card 1 -->
+                    <article class="blog__card">
+                        <div class="blog__img-wrapper">
+                            <img src="./assets/img/ai.png" alt="AI Chatbot" class="blog__img">
+                        </div>
+                        <div class="blog__data">
+                            <span class="blog__category">Generative AI</span>
+                            <h2 class="blog__title">Understanding LLMs & Gemini Integration</h2>
+                            <p class="blog__description">
+                                A deep dive into how I built a personal AI assistant using Google's Gemini API. 
+                                We explore prompt engineering and context handling in Python Flask.
+                            </p>
+                            <div class="blog__footer">
+                                <span class="blog__date"><i class="uil uil-calendar-alt"></i> Jan 2025</span>
+                                <a href="blog.html" class="button button--flex button--small button--link">
+                                    Read More <i class="uil uil-arrow-right button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- Blog Card 2 -->
+                    <article class="blog__card">
+                        <div class="blog__img-wrapper">
+                            <img src="./assets/img/autcar.jpg" alt="Self Driving" class="blog__img">
+                        </div>
+                        <div class="blog__data">
+                            <span class="blog__category">Computer Vision</span>
+                            <h2 class="blog__title">Simulating Self-Driving Cars with CARLA</h2>
+                            <p class="blog__description">
+                                How Deep Reinforcement Learning can be applied to autonomous driving simulations.
+                                Challenges faced in training agents and optimizing reward functions.
+                            </p>
+                            <div class="blog__footer">
+                                <span class="blog__date"><i class="uil uil-calendar-alt"></i> Dec 2024</span>
+                                <a href="blog.html" class="button button--flex button--small button--link">
+                                    Read More <i class="uil uil-arrow-right button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+    
+                    <!-- Blog Card 3 -->
+                    <article class="blog__card">
+                        <div class="blog__img-wrapper">
+                            <img src="./assets/img/portfolio.png" alt="Web Dev" class="blog__img">
+                        </div>
+                        <div class="blog__data">
+                            <span class="blog__category">Web Development</span>
+                            <h2 class="blog__title">Building a Portfolio that Converts</h2>
+                            <p class="blog__description">
+                                Tips on structuring a developer portfolio. Why combining AI projects with solid 
+                                Full-Stack skills makes you a stronger candidate in the Nigerian tech market.
+                            </p>
+                            <div class="blog__footer">
+                                <span class="blog__date"><i class="uil uil-calendar-alt"></i> Nov 2024</span>
+                                <a href="blog.html" class="button button--flex button--small button--link">
+                                    Read More <i class="uil uil-arrow-right button__icon"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </div>
+
+                <!-- View More Button directing to blog.html -->
+                <div style="text-align: center; margin-top: 3.5rem;">
+                    <a href="blog.html" class="button button--flex" style="display: inline-flex; align-items: center;">
+                        View More Blogs <i class="uil uil-arrow-right button__icon" style="margin-left: 0.5rem;"></i>
+                    </a>
+                </div>
+            </div>
+        </section>
 
             <section class="contact section" id="contact">
                 <h2 class="section__title">Contact</h2>
