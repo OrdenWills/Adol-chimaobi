@@ -18,13 +18,13 @@
   scene.add(group);
 
   var palette = [
-    new THREE.Color('#8b5cf6'),
-    new THREE.Color('#22d3ee'),
-    new THREE.Color('#f472b6'),
-    new THREE.Color('#a78bfa')
+    new THREE.Color('#510b9c'),
+    new THREE.Color('#7116d6'),
+    new THREE.Color('#30025e'),
+    new THREE.Color('#a366ff')
   ];
 
-  var COUNT = reduced ? 320 : 900;
+  var COUNT = reduced ? 200 : (window.innerWidth < 768 ? 400 : 700);
   var positions = new Float32Array(COUNT * 3);
   var colors = new Float32Array(COUNT * 3);
   for (var i = 0; i < COUNT; i++) {
@@ -54,15 +54,15 @@
   var points = new THREE.Points(pGeo, pMat);
   group.add(points);
 
-  var knotGeo = new THREE.TorusKnotGeometry(3.6, 1.05, 160, 24);
-  var knotMat = new THREE.MeshBasicMaterial({ color: 0x7c3aed, wireframe: true, transparent: true, opacity: 0.16 });
+  var knotGeo = new THREE.TorusKnotGeometry(3.6, 1.05, window.innerWidth < 768 ? 80 : 160, 24);
+  var knotMat = new THREE.MeshBasicMaterial({ color: 0x510b9c, wireframe: true, transparent: true, opacity: 0.16 });
   var knot = new THREE.Mesh(knotGeo, knotMat);
   knot.position.z = -6;
   group.add(knot);
 
   var ring1 = new THREE.Mesh(
     new THREE.TorusGeometry(6.5, 0.035, 16, 120),
-    new THREE.MeshBasicMaterial({ color: 0x22d3ee, transparent: true, opacity: 0.25 })
+    new THREE.MeshBasicMaterial({ color: 0x7116d6, transparent: true, opacity: 0.25 })
   );
   ring1.position.z = -10;
   ring1.rotation.x = Math.PI / 2;
@@ -70,7 +70,7 @@
 
   var ring2 = new THREE.Mesh(
     new THREE.TorusGeometry(8.2, 0.03, 16, 120),
-    new THREE.MeshBasicMaterial({ color: 0xf472b6, transparent: true, opacity: 0.18 })
+    new THREE.MeshBasicMaterial({ color: 0x30025e, transparent: true, opacity: 0.18 })
   );
   ring2.position.z = -11;
   ring2.rotation.x = Math.PI / 2.6;
