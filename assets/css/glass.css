@@ -224,12 +224,6 @@ body.dark-theme .home__social-icon {
 
 .home__img {
   filter: drop-shadow(0 20px 44px rgba(81, 11, 156, 0.4));
-  animation: floaty 6s ease-in-out infinite;
-}
-
-@keyframes floaty {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
 }
 
 .home__subtitle {
@@ -663,7 +657,6 @@ body.blog-page .blog__container {
   }
 
   .bg-blobs i,
-  .home__img,
   .button,
   .section__title,
   .home__title {
