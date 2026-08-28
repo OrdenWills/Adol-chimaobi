@@ -649,6 +649,10 @@ body.blog-page .blog__container {
   .container {
     max-width: 1080px;
   }
+
+  .home__social {
+    transform: translateX(-1.5rem);
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
