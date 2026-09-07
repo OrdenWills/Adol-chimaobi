@@ -97,8 +97,9 @@ let swiperInstance = null;
 const categories = document.querySelectorAll('.portfolio__category');
 const allSlides = document.querySelectorAll('.swiper-slide');
 const slidesByCategory = {
-    'web-dev': [],
-    'ai-project': []
+    'all': [],
+    'open-source': [],
+    'ai-systems': []
 };
 
 // Categorize slides
@@ -107,6 +108,8 @@ allSlides.forEach(slide => {
     if (slidesByCategory[category]) {
         slidesByCategory[category].push(slide.outerHTML);
     }
+    // Always add to 'all'
+    slidesByCategory['all'].push(slide.outerHTML);
 });
 
 // Initialize Swiper with options from original setup
@@ -135,7 +138,7 @@ function loadCategory(category) {
 
 // Set initial category
 document.addEventListener('DOMContentLoaded', () => {
-    loadCategory('web-dev');
+    loadCategory('all');
 });
 
 // Category click handlers
