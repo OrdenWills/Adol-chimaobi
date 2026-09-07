@@ -644,6 +644,28 @@ img {
   transform: rotate(-180deg);
 }
 
+/*==================== SKILL TAGS ====================*/
+.skills__tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  padding-top: 1rem;
+}
+
+.skill__tag {
+  background-color: var(--first-color-lighter);
+  color: var(--first-color);
+  padding: 0.5rem 1rem;
+  border-radius: 0.5rem;
+  font-size: var(--small-font-size);
+  font-weight: var(--font-medium);
+}
+
+body.dark-theme .skill__tag {
+  background-color: var(--container-color);
+  border: 1px solid var(--text-color-light);
+}
+
 /*==================== QUALIFICATION ====================*/
 .qualification__tabs {
   display: flex;
