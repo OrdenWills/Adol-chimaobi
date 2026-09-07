@@ -206,6 +206,91 @@
             color: #fff;
         }
 
+        /* Custom AI Package */
+        .pricing__custom {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 1.5rem;
+        }
+
+        .pricing__card--custom {
+            border: 2px solid var(--first-color);
+            text-align: center;
+            padding: 3rem 2.5rem;
+        }
+
+        .pricing__card--custom .pricing__divider {
+            max-width: 300px;
+            margin: var(--mb-1-5) auto;
+        }
+
+        .pricing__custom-badge {
+            display: inline-block;
+            background-color: var(--first-color);
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 2rem;
+            font-size: var(--smaller-font-size);
+            font-weight: var(--font-semi-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--mb-1);
+        }
+
+        .pricing__custom-desc {
+            color: var(--text-color);
+            font-size: var(--small-font-size);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto var(--mb-2);
+        }
+
+        .pricing__proof {
+            margin-bottom: var(--mb-2);
+        }
+
+        .pricing__proof-label {
+            display: block;
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: var(--font-medium);
+            margin-bottom: var(--mb-0-75);
+        }
+
+        .pricing__proof-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .pricing__proof-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--container-color);
+            border: 1px solid var(--scroll-thumb-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.1rem;
+            border-radius: 0.5rem;
+            font-size: var(--small-font-size);
+            font-weight: var(--font-medium);
+            transition: all 0.3s ease;
+        }
+
+        .pricing__proof-link:hover {
+            border-color: var(--first-color);
+            color: var(--first-color);
+            transform: translateY(-2px);
+        }
+
+        .pricing__custom-cta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+        }
+
         /* Process Section */
         .process {
             padding: 0 1.5rem 4rem;
@@ -474,6 +559,40 @@
                 </a>
             </div>
         </div>
+
+        <!-- Custom AI Package -->
+        <section class="pricing__custom">
+            <div class="pricing__card pricing__card pricing__card--custom">
+                <span class="pricing__custom-badge">Custom</span>
+                <h2 class="pricing__name">AI-Powered Solution</h2>
+                <p class="pricing__tagline">Tailored artificial intelligence built around your business — from chatbots to full-stack agentic systems</p>
+
+                <div class="pricing__divider"></div>
+
+                <p class="pricing__custom-desc">
+                    Every AI project is different, so pricing is scoped to your needs. Whether you want a RAG-powered assistant,
+                    a fine-tuned local model, an agentic automation platform, or a full-stack AI product — we discuss your goals
+                    and I deliver a tailored solution with a custom quote.
+                </p>
+
+                <div class="pricing__proof">
+                    <span class="pricing__proof-label">Capabilities</span>
+                    <div class="pricing__proof-links">
+                        <span class="pricing__proof-link"><i class="uil uil-robot"></i> Multi-Agent Systems</span>
+                        <span class="pricing__proof-link"><i class="uil uil-brain"></i> LLM Fine-Tuning & Training</span>
+                        <span class="pricing__proof-link"><i class="uil uil-file-search-alt"></i> RAG & Document Intelligence</span>
+                        <span class="pricing__proof-link"><i class="uil uil-database"></i> Vector Databases</span>
+                        <span class="pricing__proof-link"><i class="uil uil-server-network"></i> FastAPI Backend & MLOps</span>
+                        <span class="pricing__proof-link"><i class="uil uil-layer-group"></i> Full-Stack Development</span>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/+2347046655760?text=Hi%20Chimaobi%2C%20I%27m%20interested%20in%20a%20custom%20AI%20solution.%20Let%27s%20connect." target="_blank" rel="noopener noreferrer" class="pricing__cta pricing__cta--primary pricing__custom-cta" style="display: inline-block; margin-top: 1.5rem;">
+                    <i class="uil uil-comment-alt-message" style="margin-right: 0.4rem;"></i>
+                    Contact Me For A Custom Quote
+                </a>
+            </div>
+        </section>
 
         <!-- How It Works -->
         <section class="process">
