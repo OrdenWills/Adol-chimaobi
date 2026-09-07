@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Web development services by Ekwe Chimaobi Adolphus - Professional websites, custom domains, and email setups for businesses.">
+    <meta name="author" content="Ekwe Chimaobi Adolphus">
+
+    <link rel="icon" href="./assets/img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://unicons.iconscout.com/release/v3.0.6/css/line.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="stylesheet" href="./assets/css/glass.css">
+
+    <title>Services & Pricing | Chimaobi Adolphus Ekwe</title>
+
+    <style>
+        /* ===== PRICING PAGE OVERRIDES ===== */
+        .pricing-hero {
+            padding: 8rem 1.5rem 4rem;
+            text-align: center;
+        }
+
+        .pricing-hero h1 {
+            font-size: var(--big-font-size);
+            margin-bottom: var(--mb-0-75);
+        }
+
+        .pricing-hero p {
+            color: var(--text-color);
+            max-width: 600px;
+            margin: 0 auto var(--mb-3);
+            line-height: 1.7;
+        }
+
+        .pricing-hero .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--first-color);
+            font-size: var(--small-font-size);
+            font-weight: var(--font-medium);
+            margin-bottom: var(--mb-2);
+            transition: opacity 0.3s;
+        }
+
+        .pricing-hero .back-link:hover {
+            opacity: 0.7;
+        }
+
+        /* Pricing Grid */
+        .pricing__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0 1.5rem 4rem;
+        }
+
+        .pricing__card {
+            background-color: var(--container-color);
+            border-radius: 1rem;
+            padding: 2.5rem 2rem;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+
+        .pricing__card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--first-color);
+            border-radius: 1rem 1rem 0 0;
+        }
+
+        .pricing__card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+        }
+
+        .pricing__card--featured {
+            border: 2px solid var(--first-color);
+        }
+
+        .pricing__badge {
+            display: inline-block;
+            background-color: var(--first-color);
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 2rem;
+            font-size: var(--smaller-font-size);
+            font-weight: var(--font-semi-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--mb-1);
+            align-self: flex-start;
+        }
+
+        .pricing__name {
+            font-size: var(--h2-font-size);
+            font-weight: var(--font-semi-bold);
+            margin-bottom: var(--mb-0-5);
+        }
+
+        .pricing__tagline {
+            color: var(--text-color-light);
+            font-size: var(--small-font-size);
+            margin-bottom: var(--mb-1-5);
+        }
+
+        .pricing__amount {
+            display: flex;
+            align-items: baseline;
+            gap: 0.3rem;
+            margin-bottom: var(--mb-1-5);
+        }
+
+        .pricing__currency {
+            font-size: var(--h3-font-size);
+            color: var(--first-color);
+            font-weight: var(--font-semi-bold);
+        }
+
+        .pricing__value {
+            font-size: 2.5rem;
+            font-weight: var(--font-semi-bold);
+            color: var(--first-color);
+            line-height: 1;
+        }
+
+        .pricing__period {
+            font-size: var(--small-font-size);
+            color: var(--text-color-light);
+        }
+
+        .pricing__divider {
+            width: 100%;
+            height: 1px;
+            background-color: var(--scroll-bar-color);
+            margin-bottom: var(--mb-1-5);
+        }
+
+        .pricing__features {
+            list-style: none;
+            margin-bottom: var(--mb-2);
+            flex: 1;
+        }
+
+        .pricing__feature {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.6rem;
+            padding: 0.5rem 0;
+            font-size: var(--small-font-size);
+            color: var(--text-color);
+        }
+
+        .pricing__feature i {
+            color: var(--first-color);
+            font-size: 1rem;
+            margin-top: 0.15rem;
+            flex-shrink: 0;
+        }
+
+        .pricing__cta {
+            display: block;
+            width: 100%;
+            text-align: center;
+            padding: 0.9rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: var(--font-semi-bold);
+            font-size: var(--normal-font-size);
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+            font-family: var(--body-font);
+        }
+
+        .pricing__cta--primary {
+            background-color: var(--first-color);
+            color: #fff;
+        }
+
+        .pricing__cta--primary:hover {
+            background-color: var(--first-color-alt);
+            color: #fff;
+        }
+
+        .pricing__cta--outline {
+            background-color: transparent;
+            color: var(--first-color);
+            border: 2px solid var(--first-color);
+        }
+
+        .pricing__cta--outline:hover {
+            background-color: var(--first-color);
+            color: #fff;
+        }
+
+        /* Custom AI Package */
+        .pricing__custom {
+            max-width: 800px;
+            margin: 0 auto 4rem;
+            padding: 0 1.5rem;
+        }
+
+        .pricing__card--custom {
+            border: 2px solid var(--first-color);
+            text-align: center;
+            padding: 3rem 2.5rem;
+        }
+
+        .pricing__card--custom .pricing__divider {
+            max-width: 300px;
+            margin: var(--mb-1-5) auto;
+        }
+
+        .pricing__custom-badge {
+            display: inline-block;
+            background-color: var(--first-color);
+            color: #fff;
+            padding: 0.3rem 1rem;
+            border-radius: 2rem;
+            font-size: var(--smaller-font-size);
+            font-weight: var(--font-semi-bold);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: var(--mb-1);
+        }
+
+        .pricing__custom-desc {
+            color: var(--text-color);
+            font-size: var(--small-font-size);
+            line-height: 1.7;
+            max-width: 600px;
+            margin: 0 auto var(--mb-2);
+        }
+
+        .pricing__proof {
+            margin-bottom: var(--mb-2);
+        }
+
+        .pricing__proof-label {
+            display: block;
+            font-size: var(--smaller-font-size);
+            color: var(--text-color-light);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            font-weight: var(--font-medium);
+            margin-bottom: var(--mb-0-75);
+        }
+
+        .pricing__proof-links {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+        }
+
+        .pricing__proof-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background-color: var(--container-color);
+            border: 1px solid var(--scroll-thumb-color);
+            color: var(--text-color);
+            padding: 0.6rem 1.1rem;
+            border-radius: 0.5rem;
+            font-size: var(--small-font-size);
+            font-weight: var(--font-medium);
+            transition: all 0.3s ease;
+        }
+
+        .pricing__proof-link:hover {
+            border-color: var(--first-color);
+            color: var(--first-color);
+            transform: translateY(-2px);
+        }
+
+        .pricing__custom-cta {
+            display: inline-block;
+            padding: 1rem 2.5rem;
+        }
+
+        /* Process Section */
+        .process {
+            padding: 0 1.5rem 4rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .process__title {
+            text-align: center;
+            font-size: var(--h2-font-size);
+            margin-bottom: var(--mb-2);
+        }
+
+        .process__steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
+        }
+
+        .process__step {
+            text-align: center;
+            padding: 1.5rem 1rem;
+            background-color: var(--container-color);
+            border-radius: 0.75rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+        }
+
+        .process__number {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            background-color: var(--first-color);
+            color: #fff;
+            font-weight: var(--font-semi-bold);
+            font-size: var(--h3-font-size);
+            margin-bottom: var(--mb-0-75);
+        }
+
+        .process__step h3 {
+            font-size: var(--normal-font-size);
+            margin-bottom: var(--mb-0-5);
+        }
+
+        .process__step p {
+            font-size: var(--small-font-size);
+            color: var(--text-color-light);
+            line-height: 1.5;
+        }
+
+        /* FAQ */
+        .faq {
+            padding: 0 1.5rem 4rem;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .faq__title {
+            text-align: center;
+            font-size: var(--h2-font-size);
+            margin-bottom: var(--mb-2);
+        }
+
+        .faq__item {
+            background-color: var(--container-color);
+            border-radius: 0.5rem;
+            margin-bottom: var(--mb-0-75);
+            overflow: hidden;
+            box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+        }
+
+        .faq__question {
+            width: 100%;
+            padding: 1rem 1.25rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: none;
+            border: none;
+            color: var(--title-color);
+            font-size: var(--normal-font-size);
+            font-weight: var(--font-medium);
+            font-family: var(--body-font);
+            cursor: pointer;
+            text-align: left;
+        }
+
+        .faq__question i {
+            color: var(--first-color);
+            transition: transform 0.3s;
+        }
+
+        .faq__item.active .faq__question i {
+            transform: rotate(180deg);
+        }
+
+        .faq__answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+
+        .faq__item.active .faq__answer {
+            max-height: 200px;
+        }
+
+        .faq__answer p {
+            padding: 0 1.25rem 1rem;
+            font-size: var(--small-font-size);
+            color: var(--text-color);
+            line-height: 1.6;
+        }
+
+        /* Footer CTA */
+        .footer-cta {
+            text-align: center;
+            padding: 3rem 1.5rem 4rem;
+        }
+
+        .footer-cta h2 {
+            font-size: var(--h2-font-size);
+            margin-bottom: var(--mb-0-75);
+        }
+
+        .footer-cta p {
+            color: var(--text-color);
+            margin-bottom: var(--mb-1-5);
+        }
+
+        .footer-cta a {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        /* Responsive */
+        @media screen and (max-width: 600px) {
+            .pricing__grid {
+                grid-template-columns: 1fr;
+            }
+
+            .process__steps {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body class="dark-theme">
+
+    <main>
+        <!-- Hero -->
+        <section class="pricing-hero">
+            <a href="index.html" class="back-link">
+                <i class="uil uil-arrow-left"></i> Back to Portfolio
+            </a>
+            <h1>Services & Pricing</h1>
+            <p>Professional web development tailored to your business. From single-page landing sites to full-stack platforms with custom domains and email.</p>
+        </section>
+
+        <!-- Pricing Cards -->
+        <div class="pricing__grid">
+            <!-- Starter Package -->
+            <div class="pricing__card">
+                <h2 class="pricing__name">Starter Site</h2>
+                <p class="pricing__tagline">A clean, professional 1-page presence for your brand</p>
+
+                <div class="pricing__amount">
+                    <span class="pricing__currency">&#8358;</span>
+                    <span class="pricing__value">300,000</span>
+                </div>
+
+                <div class="pricing__divider"></div>
+
+                <ul class="pricing__features">
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Custom single-page website</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Custom domain name setup</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Web hosting configuration</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Responsive design (mobile + desktop)</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>SEO basics & performance optimization</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Contact form integration</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>1 revision round included</span>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/+2347046655760?text=Hi%20Chimaobi%2C%20I%27m%20interested%20in%20the%20Starter%20Site%20package." target="_blank" rel="noopener noreferrer" class="pricing__cta pricing__cta--outline">
+                    Get Started
+                </a>
+            </div>
+
+            <!-- Business Package -->
+            <div class="pricing__card pricing__card--featured">
+                <span class="pricing__badge">Most Popular</span>
+                <h2 class="pricing__name">Business Suite</h2>
+                <p class="pricing__tagline">A full business website with domain, email, and templates</p>
+
+                <div class="pricing__amount">
+                    <span class="pricing__currency">&#8358;</span>
+                    <span class="pricing__value">850,000</span>
+                </div>
+
+                <div class="pricing__divider"></div>
+
+                <ul class="pricing__features">
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Multi-page custom website</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Custom domain name setup</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Custom email (you@yourdomain.com)</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Professional email templates</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Responsive design (mobile + desktop)</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Advanced SEO & analytics setup</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>SSL certificate & security config</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>Admin dashboard / CMS (optional)</span>
+                    </li>
+                    <li class="pricing__feature">
+                        <i class="uil uil-check-circle"></i>
+                        <span>2 revision rounds included</span>
+                    </li>
+                </ul>
+
+                <a href="https://wa.me/+2347046655760?text=Hi%20Chimaobi%2C%20I%27m%20interested%20in%20the%20Business%20Suite%20package." target="_blank" rel="noopener noreferrer" class="pricing__cta pricing__cta--primary">
+                    Get Started
+                </a>
+            </div>
+        </div>
+
+        <!-- Custom AI Package -->
+        <section class="pricing__custom">
+            <div class="pricing__card pricing__card pricing__card--custom">
+                <span class="pricing__custom-badge">Custom</span>
+                <h2 class="pricing__name">AI-Powered Solution</h2>
+                <p class="pricing__tagline">Tailored artificial intelligence built around your business — from chatbots to full-stack agentic systems</p>
+
+                <div class="pricing__divider"></div>
+
+                <p class="pricing__custom-desc">
+                    Every AI project is different, so pricing is scoped to your needs. Whether you want a RAG-powered assistant,
+                    a fine-tuned local model, an agentic automation platform, or a full-stack AI product — we discuss your goals
+                    and I deliver a tailored solution with a custom quote.
+                </p>
+
+                <div class="pricing__proof">
+                    <span class="pricing__proof-label">Capabilities</span>
+                    <div class="pricing__proof-links">
+                        <span class="pricing__proof-link"><i class="uil uil-robot"></i> Multi-Agent Systems</span>
+                        <span class="pricing__proof-link"><i class="uil uil-brain"></i> LLM Fine-Tuning & Training</span>
+                        <span class="pricing__proof-link"><i class="uil uil-file-search-alt"></i> RAG & Document Intelligence</span>
+                        <span class="pricing__proof-link"><i class="uil uil-database"></i> Vector Databases</span>
+                        <span class="pricing__proof-link"><i class="uil uil-server-network"></i> FastAPI Backend & MLOps</span>
+                        <span class="pricing__proof-link"><i class="uil uil-layer-group"></i> Full-Stack Development</span>
+                    </div>
+                </div>
+
+                <a href="https://wa.me/+2347046655760?text=Hi%20Chimaobi%2C%20I%27m%20interested%20in%20a%20custom%20AI%20solution.%20Let%27s%20connect." target="_blank" rel="noopener noreferrer" class="pricing__cta pricing__cta--primary pricing__custom-cta" style="display: inline-block; margin-top: 1.5rem;">
+                    <i class="uil uil-comment-alt-message" style="margin-right: 0.4rem;"></i>
+                    Contact Me For A Custom Quote
+                </a>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section class="process">
+            <h2 class="process__title">How It Works</h2>
+            <div class="process__steps">
+                <div class="process__step">
+                    <span class="process__number">1</span>
+                    <h3>Consultation</h3>
+                    <p>We discuss your goals, brand, and what you need. I'll recommend the right package.</p>
+                </div>
+                <div class="process__step">
+                    <span class="process__number">2</span>
+                    <h3>Build & Deliver</h3>
+                    <p>I design and develop your site, set up your domain, email, and hosting.</p>
+                </div>
+                <div class="process__step">
+                    <span class="process__number">3</span>
+                    <h3>Launch</h3>
+                    <p>Final review, revisions, and your site goes live. Full handover of credentials.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq">
+            <h2 class="faq__title">Frequently Asked Questions</h2>
+
+            <div class="faq__item">
+                <button class="faq__question">
+                    <span>How long does it take to build?</span>
+                    <i class="uil uil-angle-down"></i>
+                </button>
+                <div class="faq__answer">
+                    <p>Starter sites take 3-5 business days. Business Suite projects take 7-14 business days depending on complexity and how quickly we finalize requirements.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">
+                    <span>Do I own the domain and hosting?</span>
+                    <i class="uil uil-angle-down"></i>
+                </button>
+                <div class="faq__answer">
+                    <p>Yes. Everything is registered under your name. I handle the setup and hand over all credentials once the project is complete.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">
+                    <span>What's included in the custom email?</span>
+                    <i class="uil uil-angle-down"></i>
+                </button>
+                <div class="faq__answer">
+                    <p>The Business Suite includes a professional email address (e.g., info@yourdomain.com) with inbox setup, plus branded email templates for common communications.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">
+                    <span>Can I upgrade from Starter to Business later?</span>
+                    <i class="uil uil-angle-down"></i>
+                </button>
+                <div class="faq__answer">
+                    <p>Absolutely. You only pay the difference between the two packages. Your existing site and domain carry over.</p>
+                </div>
+            </div>
+
+            <div class="faq__item">
+                <button class="faq__question">
+                    <span>Do you provide ongoing maintenance?</span>
+                    <i class="uil uil-angle-down"></i>
+                </button>
+                <div class="faq__answer">
+                    <p>Yes. After launch, I offer monthly maintenance packages for updates, security patches, and content changes. We can discuss this after your site goes live.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="footer-cta">
+            <h2>Ready to get started?</h2>
+            <p>Let's build something that works for your business.</p>
+            <a href="https://wa.me/+2347046655760?text=Hi%20Chimaobi%2C%20I%27d%20like%20to%20discuss%20a%20project." target="_blank" rel="noopener noreferrer" class="button button--flex" style="display: inline-flex;">
+                <i class="uil uil-whatsapp"></i> Chat on WhatsApp
+            </a>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__bg">
+            <div class="footer__container container grid">
+                <div>
+                    <h1 class="footer__title">Ad<i class="uil uil-brain"></i>lphus</h1>
+                    <span class="footer__subtitle">Senior AI/ML Engineer</span>
+                </div>
+                <ul class="footer__links">
+                    <li><a href="index.html" class="footer__link">Portfolio</a></li>
+                    <li><a href="index.html#services" class="footer__link">Services</a></li>
+                    <li><a href="index.html#contact" class="footer__link">Contact</a></li>
+                </ul>
+                <div class="footer__socials">
+                    <a href="https://github.com/OrdenWills/" target="_blank" class="footer__social">
+                        <i class="uil uil-github-alt"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/ekwe-chimaobi-adolphus" target="_blank" class="footer__social">
+                        <i class="uil uil-linkedin-alt"></i>
+                    </a>
+                    <a href="https://twitter.com/orden_wills" target="_blank" class="footer__social">
+                        <i class="uil uil-twitter-alt"></i>
+                    </a>
+                </div>
+            </div>
+            <p class="footer__copy">&#169; Chimaobi Adolphus Ekwe <span id="footer-year"></span></p>
+        </div>
+    </footer>
+
+    <script>
+        var currentYear = new Date().getFullYear();
+        var footerYear = document.getElementById('footer-year');
+        if (footerYear) footerYear.textContent = currentYear;
+
+        // FAQ Accordion
+        document.querySelectorAll('.faq__question').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const item = btn.parentElement;
+                const wasActive = item.classList.contains('active');
+                document.querySelectorAll('.faq__item').forEach(i => i.classList.remove('active'));
+                if (!wasActive) item.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1151,16 +1151,16 @@ body.dark-theme .skill__tag {
         }
 /*==================== FOOTER ====================*/
 .footer {
-  padding-top: 2rem;
+  padding-top: 1rem;
 }
 
 .footer__container {
-  row-gap: 3.5rem;
+  row-gap: 1.5rem;
 }
 
 .footer__bg {
   background-color: var(--first-color-second);
-  padding: 2rem 0 3rem;
+  padding: 1.5rem 0;
 }
 
 .footer__title {
@@ -1195,7 +1195,7 @@ body.dark-theme .skill__tag {
   font-size: var(--smaller-font-size);
   text-align: center;
   color: rgb(255, 255, 255, 0.5);
-  margin-top: var(--mb-3);
+  margin-top: var(--mb-1-5);
 }
 
 .footer__title, .footer__subtitle, .footer__link, .footer__social {
@@ -1442,7 +1442,7 @@ body.dark-theme .skill__tag {
     grid-template-columns: repeat(3, 1fr);
   }
   .footer__bg {
-    padding: 3rem 0 3.5rem;
+    padding: 2rem 0 2rem;
   }
   .footer__links {
     flex-direction: row;
@@ -1452,7 +1452,7 @@ body.dark-theme .skill__tag {
     justify-self: flex-end;
   }
   .footer__copy {
-    margin-top: 4.5rem;
+    margin-top: 2rem;
   }
 }
 
